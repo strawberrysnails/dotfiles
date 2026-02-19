@@ -1,218 +1,105 @@
-/* 
-┌─┐┬┌┬┐┌─┐┬  ┌─┐
-└─┐││││├─┘│  ├┤ 
-└─┘┴┴ ┴┴  ┴─┘└─┘
-┌─┐┌─┐─┐ ┬      
-├┤ │ │┌┴┬┘      
-└  └─┘┴ └─
-
-by Miguel Avila
-
-*/
-
-/*
- 
-┌─┐┌─┐┌┐┌┌─┐┬┌─┐┬ ┬┬─┐┌─┐┌┬┐┬┌─┐┌┐┌
-│  │ ││││├┤ ││ ┬│ │├┬┘├─┤ │ ││ ││││
-└─┘└─┘┘└┘└  ┴└─┘└─┘┴└─┴ ┴ ┴ ┴└─┘┘└┘
-
-*/
-
 :root {
-  --sfwindow: #19171a;
-  --sfsecondary: #201e21;
+  --red: #f38ba8;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+  --text: #cdd6f4;
+  --subtext1: #bac2de;
+  --subtext0: #a6adc8;
+  --overlay2: #9399b2;
+  --surface2: #585b70;
+  --surface1: #45475a;
+  --surface0: #313244;
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+
+  --toolbar-field-background-color: var(--surface0)!important; /* To change the colour of the url bar */
+  --toolbar-color: var(--text) !important;
+
+  --toolbarbutton-icon-fill: var(--text) !important; /* Changing the colour of icons */
 }
 
-/* Urlbar View */
 
-/*─────────────────────────────*/
-/* Comment this section if you */
-/* want to show the URL Bar    */
-/*─────────────────────────────*/
+/* Change the title bar colour */
+background-color: var(--mantle)!important;
+}
 
-/*─────────────────────────────*/
 
-/* 
-┌─┐┌─┐┬  ┌─┐┬─┐┌─┐
-│  │ ││  │ │├┬┘└─┐
-└─┘└─┘┴─┘└─┘┴└─└─┘ 
-*/
-
-/* Tabs colors  */
-#tabbrowser-tabs:not([movingtab])
-  > #tabbrowser-arrowscrollbox
-  > .tabbrowser-tab
-  > .tab-stack
-  > .tab-background[multiselected='true'],
-#tabbrowser-tabs:not([movingtab])
-  > #tabbrowser-arrowscrollbox
-  > .tabbrowser-tab
-  > .tab-stack
-  > .tab-background[selected='true'] {
+/* background colour of active tab */
+.tab-background[selected]{
   background-image: none !important;
-  background-color: var(--toolbar-bgcolor) !important;
+  background-color: var(--green) !important;
 }
 
-/* Inactive tabs color */
+/* Updates the text of the active tab */
+.tab-label-container[selected] {
+  color: var(--crust) !important;
+}
+
+/* Changes the colour of the close button */
+.tab-close-button.close-icon[selected] {
+  color: var(--crust) !important;
+}
+
+/* For Title bar colours */
+.browser-toolbar {
+  &:not(.titlebar-color) {
+    background-color: var(--mantle) !important;
+    color: var(--text);
+  }
+}
+
+@media only screen and (max-width: 1432px){
+  #search-container {
+  display: none !important;
+  }
+}
+
+#urlbar[focused="true"]:not([suppress-focus-border]) > #urlbar-background,
+#searchbar:focus-within {
+--toolbar-field-focus-border-color: var(--blue); /* To make the searchbar outline catppuccin blue */
+}
+
+/* To change the color of the url bar */
+#urlbar-background, #searchbar {
+background-color: var(--surface0) !important;
+}
+
+/* Hide the search bars buddon */
+#alltabs-button {
+display: none;
+}
+
+/* Changing the urlbar text clour */
+#urlbar-input, #urlbar-scheme, .searchbar-textbox {
+color: var(--text) !important;
+}
+
+/* Chaning the colour of the search icon */
+#urlbar, #searchbar {
+color: var(--text) !important;
+}
+
+/* Changing the colour of the unused tabs */
 #navigator-toolbox {
-  background-color: var(--sfwindow) !important;
+&:-moz-lwtheme {
+  color: var(--subtext0) !important;
 }
-
-/* Window colors  */
-:root {
-  --toolbar-bgcolor: var(--sfsecondary) !important;
-  --tabs-border-color: var(--sfsecondary) !important;
-  --lwt-sidebar-background-color: var(--sfwindow) !important;
-  --lwt-toolbar-field-focus: var(--sfsecondary) !important;
-}
-
-/* Sidebar color  */
-#sidebar-box,
-.sidebar-placesTree {
-  background-color: var(--sfwindow) !important;
-}
-
-/* 
-
-┌┬┐┌─┐┬  ┌─┐┌┬┐┌─┐            
- ││├┤ │  ├┤  │ ├┤             
-─┴┘└─┘┴─┘└─┘ ┴ └─┘            
-┌─┐┌─┐┌┬┐┌─┐┌─┐┌┐┌┌─┐┌┐┌┌┬┐┌─┐
-│  │ ││││├─┘│ ││││├┤ │││ │ └─┐
-└─┘└─┘┴ ┴┴  └─┘┘└┘└─┘┘└┘ ┴ └─┘
-
-*/
-
-/* Tabs elements  */
-.tab-close-button {
-  display: none;
-}
-
-/* Favicons */
-.tabbrowser-tab:not([pinned]) .tab-icon-image {
-  opacity: 0.6 !important;
-  filter: grayscale(50%) !important;
-}
-
-#nav-bar:not([tabs-hidden='true']) {
-  box-shadow: none;
-}
-
-#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
-  > #tabbrowser-arrowscrollbox
-  > .tabbrowser-tab[first-visible-unpinned-tab] {
-  margin-inline-start: 0 !important;
-}
-
-:root {
-  --toolbarbutton-border-radius: 0 !important;
-  --tab-border-radius: 0 !important;
-  --tab-block-margin: 0 !important;
-}
-
-.tab-background {
-  border-right: 0px solid rgba(0, 0, 0, 0) !important;
-  margin-left: -4px !important;
-}
-
-.tabbrowser-tab:is([visuallyselected='true'], [multiselected])
-  > .tab-stack
-  > .tab-background {
-  box-shadow: none !important;
-}
-
-.tabbrowser-tab[last-visible-tab='true'] {
-  padding-inline-end: 0 !important;
-}
-
-#tabs-newtab-button {
-  padding-left: 0 !important;
-}
-
-/* Url Bar  */
-#urlbar-input-container {
-  background-color: var(--sfsecondary) !important;
-  border: 1px solid rgba(0, 0, 0, 0) !important;
-}
-
-#urlbar-container {
-  margin-left: 0 !important;
-}
-
-#urlbar[focused='true'] > #urlbar-background {
-  box-shadow: none !important;
-}
-
-#navigator-toolbox {
-  border: none !important;
-}
-/* Add-on / toolbar icons: semi-transparent + grayscale */
-.toolbarbutton-1 .toolbarbutton-icon {
-  opacity: 0.6 !important;
-  filter: grayscale(50%) !important;
-}
-
-toolbarbutton.bookmark-item:not(.subviewbutton) {
-  min-width: 1.6em;
-}
-
-/* Bookmark favicons: semi-transparent + grayscale */
-toolbarbutton.bookmark-item .toolbarbutton-icon {
-  opacity: 0.6 !important;
-  filter: grayscale(50%) !important;
-}
-
-/* Tabs, bookmarks, and toolbar icons */
-.tabbrowser-tab .tab-icon-image,
-toolbarbutton.bookmark-item .toolbarbutton-icon,
-.toolbarbutton-1 .toolbarbutton-icon {
-  transition: opacity 0.2s, filter 0.2s;
-}
-
-.tabbrowser-tab:hover .tab-icon-image,
-toolbarbutton.bookmark-item:hover .toolbarbutton-icon,
-.toolbarbutton-1:hover .toolbarbutton-icon {
-  opacity: 1 !important;
-  filter: grayscale(0%) !important;
 }
 
 
-
-/* Toolbar  */
-#tracking-protection-icon-container,
-#urlbar-zoom-button,
-#star-button-box,
-#pageActionButton,
-#pageActionSeparator,
-.tab-secondary-label {
-  display: none !important;
+/* To change the ctrl-F bar */
+findbar {
+  background: var(--mantle) !important;
+  background-position-y: 0%;
 }
 
-.urlbarView-url {
-  color: #dedede !important;
-}
 
-/* Disable elements  */
-#context-navigation,
-#context-savepage,
-#context-pocket,
-#context-sendpagetodevice,
-#context-sendlinktodevice,
-#context-openlinkinusercontext-menu,
-#context-bookmarklink,
-#context-savelinktopocket,
-#context-sendlinktodevice,
-#context-sendimage,
-#context-print-selection {
-  display: none !important;
+.checkbox-check[checked] {
+  background-color: var(--green) !important;
+  fill: var(--mantle) !important;
 }
-
-#context_bookmarkTab,
-#context_moveTabOptions,
-#context_sendTabToDevice,
-#context_reopenInContainer,
-#context_selectAllTabs,
-#context_closeTabOptions {
-  display: none !important;
-}
-
